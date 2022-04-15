@@ -86,5 +86,11 @@ SELECT placa, modelo, descripcion_linea, descripcion_marca FROM vehiculo INNER J
 -- Traer todos los registro con el si
 SELECT * FROM linea INNER JOIN vehiculo ON linea.id_linea = vehiculo.id_linea WHERE linea.activa = 'si';
 
+-- Modelo Maximo
+SELECT MAX(modelo) FROM vehiculo;
+
+-- Modelo Minimo
+SELECT MIN(modelo) FROM vehiculo;
+
 
 

@@ -76,29 +76,16 @@ router.delete('/vehiculo/:placa', async (req, res) => {
         res.status(500).json({ "Error": "Error en el servidor" });
     }
 })
-
-// Vehiculo con mayor modelo
-router.get('/vehiculo/mayor', async (req, res) => {
+// Mayor y modelo minimo
+router.get('/vehiculo/MinMax', async (req, res) => {
     try {
-        const [rows] = await conection.query('SELECT MAX(modelo) Modelo_max  FROM vehiculo;');
-        const modelo = rows[0].Modelo_max;
-        const [rows2] = await conection.query(`SELECT * FROM vehiculo WHERE modelo = '${modelo}'`);
-        const result = arreroFecha(rows2);
-        res.status(200).json(result);
+        const [rows_modelo_max] = await conection.query('SELECT MAX(modelo) Modelo_max  FROM vehiculo;');
+        const Modelo_max = rows_modelo_max[0].Modelo_max;
+        const [rows_modelo_min] = await conection.query('SELECT MIN(modelo) Modelo_min  FROM vehiculo;');
+        const Modelo_min = rows_modelo_min[0].Modelo_min;
+        res.status(200).json({ Modelo_max, Modelo_min });
     } catch (error) {
-        res.status(500).json({ "Error": "Error en el servidor" });
-    }
-})
-
-// vehiculo con menor modelo
-router.get('/vehiculo/menor', async (req, res) => {
-    try {
-        const [rows] = await conection.query('SELECT MIN(modelo) Modelo_min  FROM vehiculo;');
-        const modelo = rows[0].Modelo_min;
-        const [rows2] = await conection.query(`SELECT * FROM vehiculo WHERE modelo = '${modelo}'`);
-        const result = arreroFecha(rows2);
-        res.status(200).json(result);
-    } catch (error) {
+        console.log(error);
         res.status(500).json({ "Error": "Error en el servidor" });
     }
 })
