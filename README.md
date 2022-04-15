@@ -8,7 +8,7 @@ Actualmente, la empresa Semillero S.A.S quiere implementar una base de datos que
 
 ### Modelo Entidad Relación
 
-![modelo entidad relacion](https://res.cloudinary.com/ddgyxfetd/image/upload/v1649348808/Back-End/Reto_Final_Etapa_1_Backend-P%C3%A1gina-1.drawio_hvnhlq.png)
+![modelo entidad relacion](https://res.cloudinary.com/ddgyxfetd/image/upload/v1649823257/Back-End/Reto_Final_Etapa_1_Backend-P%C3%A1gina-1.drawio_bv2rud.png)
 
 ### Modelo Relacional
 
@@ -16,4 +16,4 @@ Actualmente, la empresa Semillero S.A.S quiere implementar una base de datos que
 
 ## Base de datos en XAMPP
 
-![BD XAMP](https://res.cloudinary.com/ddgyxfetd/image/upload/v1649348963/Back-End/bd_e9emkv.png)
+![BD XAMP](https://res.cloudinary.com/ddgyxfetd/image/upload/v1649823377/Back-End/bd_idnjcf.png)
