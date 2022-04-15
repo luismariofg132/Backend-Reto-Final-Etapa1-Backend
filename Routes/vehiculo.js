@@ -91,7 +91,7 @@ router.get('/vehiculo/MinMax', async (req, res) => {
 })
 
 // Consulta por un rango de fecha
-router.post('/vehiculo/fechaTecnicomeca', async (req, res) => {
+router.post('/vehiculo/fechaSeguro', async (req, res) => {
     try {
         const { fecha_inicio, fecha_fin } = req.body;
         const [rows] = await conection.query(`SELECT * FROM vehiculo WHERE fv_seguro BETWEEN '${fecha_inicio}' AND '${fecha_fin}'`);
