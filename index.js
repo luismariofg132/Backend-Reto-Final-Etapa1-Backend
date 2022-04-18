@@ -4,10 +4,32 @@ const app = express();
 require('dotenv').config();
 const cors = require('cors');
 
+const path = require('path');
+// Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+
+const swaggerSpec = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Backend Reto Final Etapa 1',
+            version: '1.0.0'
+        },
+        servers: [
+            {
+                url: 'https://reto-final-etapa-1-backend.herokuapp.com'
+            }
+        ]
+    },
+    apis: [`${path.join(__dirname, './Routes/*.js')}`]
+}
+
 // Midlewares
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(swaggerSpec)))
 
 app.get('/', (req, res) => {
     res.send('Hello World');

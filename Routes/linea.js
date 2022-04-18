@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const conection = require('../DB/db');
 
+
 router.get('/linea', async (req, res) => {
     try {
         const [rows] = await conection.query('SELECT * FROM linea');
@@ -10,6 +11,8 @@ router.get('/linea', async (req, res) => {
         res.status(500).json({ "Error": "Error en el servidor" });
     }
 })
+
+
 
 router.post('/linea', async (req, res) => {
     try {
@@ -50,6 +53,7 @@ router.put('/linea/:id', async (req, res) => {
             res.status(400).json({ "Error": "El campo activa solo puede ser si o no" });
         }
     } catch (error) {
+        console.log(error);
         res.status(500).json({ "Error": "Error en el servidor" });
     }
 });
@@ -99,3 +103,4 @@ router.get('/linea/actividad', async (req, res) => {
 
 
 module.exports = router;
+
